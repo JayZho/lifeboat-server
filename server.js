@@ -2,7 +2,7 @@ const io = require("socket.io")(
     3000,
     {
         cors: {
-            origin: ["http://localhost:3001"]
+            origin: ["https://lifeboat-client-0gddwfowd10071bd-1302413344.ap-shanghai.app.tcloudbase.com/"]
         }
     }
 );
