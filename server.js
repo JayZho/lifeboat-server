@@ -4,19 +4,18 @@ const http = require("http");
 const cors = require("cors");
 const { Server } = require("socket.io");
 
-app.use(cors());
+app.use(cors({
+    origin: "*"
+})
+);
 
 const server = http.createServer(app);
 
-const io = new Server(server, {
-    cors: {
-        origin: "https://lifeboat-client-0gddwfowd10071bd-1302413344.ap-shanghai.app.tcloudbase.com/",
-        methods: ["GET", "POST"],
-    }
-});
+const io = new Server(server);
 
 io.on("connection", (client) => {
     console.log(client.id);
+
 
     client.on("disconnect", () => {
         console.log("Client disconnected");
