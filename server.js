@@ -3,25 +3,11 @@ const app = express();
 const http = require("http");
 const cors = require("cors");
 
-const whitelist = [
-    "https://lifeboat-client-0gddwfowd10071bd-1302413344.ap-shanghai.app.tcloudbase.com",
-    "http://localhost:3000",
-];
-const corsOptions = {
-    credentials: true, // This is important.
-    origin: (origin, callback) => {
-        if (whitelist.includes(origin))
-            return callback(null, true)
-
-        callback(new Error('Not allowed by CORS'));
-    }
-}
-app.use(cors(corsOptions));
-
 const server = http.createServer(app);
 
 const io = require("socket.io")(server, {
     cors: {
+        credentials: true,
         origin: [
             "https://lifeboat-client-0gddwfowd10071bd-1302413344.ap-shanghai.app.tcloudbase.com",
             "http://localhost:3000",
