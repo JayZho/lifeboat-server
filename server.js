@@ -12,18 +12,13 @@ const server = http.createServer(app);
 
 const io = require("socket.io")(server, {
     cors: {
-      origin: "*",
-      methods: ["GET", "POST"] 
+        origin: "*",
+        methods: ["GET", "POST"]
     }
-  });
+});
 
-io.on("connection", (client) => {
-    console.log(client.id);
-
-
-    client.on("disconnect", () => {
-        console.log("Client disconnected");
-    });
+io.on('connection', socket => {
+    io.emit('message', "server's greetings!");
 });
 
 server.listen(3001, () => {
