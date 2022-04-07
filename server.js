@@ -1,13 +1,17 @@
 const express = require("express");
 const app = express();
 const http = require("http");
-const cors = require("cors");
+
+// const cors = require("cors");
+// // app.use(cors({
+// //     origin: "*"
+// // })
+// // );
 
 const server = http.createServer(app);
 
 const io = require("socket.io")(server, {
     cors: {
-        credentials: true,
         origin: [
             "https://lifeboat-client-0gddwfowd10071bd-1302413344.ap-shanghai.app.tcloudbase.com",
             "http://localhost:3000",
