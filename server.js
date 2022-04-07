@@ -14,6 +14,7 @@ const io = require("socket.io")(server, {
     cors: {
         origin: [
             "https://lifeboat-client-0gddwfowd10071bd-1302413344.ap-shanghai.app.tcloudbase.com",
+            "http://lifeboat-client-0gddwfowd10071bd-1302413344.ap-shanghai.app.tcloudbase.com",
             "http://localhost:3000",
         ],
         methods: ["GET", "POST", "PUT", "DELETE"]
